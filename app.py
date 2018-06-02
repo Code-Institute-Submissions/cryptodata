@@ -42,7 +42,7 @@ def crypto():
         collection = conn[DBS_NAME][COLLECTION_NAME]
         # Retrieve a result set only with the fields defined in FIELDS
         # and limit the the results to 55000
-        projects = collection.find(projection=FIELDS, limit=20000)
+        projects = collection.find(projection=FIELDS, limit=50000)
         # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(projects))
 
