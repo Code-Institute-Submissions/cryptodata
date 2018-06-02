@@ -12,6 +12,7 @@ DBS_NAME = os.getenv('MONGO_DB_NAME', 'cryptoBEL')
 COLLECTION_NAME = 'projects'
 
 
+
 @app.route("/")
 def index():
     """
