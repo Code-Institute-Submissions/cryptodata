@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crypto Major Coins</title>
+  <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/keen-dashboards.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
+</head>
+<!------------------------------------------------------------------------------------------->
+<body class="application">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">Crypto Currency Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+
+<!--------------------------------------------------------------------------------------------------------------------->
+  <div id="outer" class="container-fluid">
+  <div class="row">
+    <div class='col-lg-4'>
+        <div class="coinmarketcap-currency-widget" data-currencyid="1" data-base="USD" ></div>
+    </div>
+    <div class='col-lg-4'>
+        <div class="coinmarketcap-currency-widget" data-currencyid="1027" data-base="USD"></div>
+    </div>
+    <div class='col-lg-4'>
+        <div class="coinmarketcap-currency-widget" data-currencyid="2" data-base="USD"></div>
+    </div>
+  </div>
+</div>
+<!---------------------------------------First Group------------------------------------------------------------->
+  <div  id="outer" class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                 <div class="chart-wrapper">
+<!--------------------------------------------------------------------------------------------------------------->
+
+                <div class='col-lg-4'>
+                    <div class="chart-wrapper">
+                         <div class="chart-title">
+                                Market Cap Dominance
+                         </div>
+                         <div class="chart-stage">
+                                <div id="pie-chart"></div>
+                         </div>
+                    </div>
+                </div>
+
+<!--------------------------------------------------------------------------------------------------------------->
+
+                <div class='col-lg-8'>
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                               Price Timeline
+                        </div>
+                        <div class="chart-stage">
+                                <div id="time-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+<!--------------------------------------------------------------------------------------------------------------->
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<!-------------------------------------------End of the First Group----------------------------------------------->
+
+
+<!---------------------------------------Second Group------------------------------------------------------------->
+  <div  id="" class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-12">
+                 <div class="chart-wrapper">
+<!--------------------------------------------------------------------------------------------------------------->
+
+                <div class='col-lg-3'>
+                    <div class="chart-wrapper">
+                         <div class="chart-title">
+                                Circulating Supply
+                         </div>
+                         <div class="chart-stage">
+                                <div id="bar-chart"></div>
+                         </div>
+                    </div>
+                </div>
+
+<!--------------------------------------------------------------------------------------------------------------->
+
+                <div class='col-lg-9'>
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                                Total Market Cap
+                        </div>
+                        <div class="chart-stage">
+                                <div id="series-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+<!--------------------------------------------------------------------------------------------------------------->
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+<!-------------------------------------------End of the Second Group---------------------------------------------->
+
+
+<!--------------------------------------------------------------------------------------------------------------->
+<hr>
+<div class='col-sm-12'>
+  <p class="small text-muted"> RRZ Corp </p>
+</div>
+
+  <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
+  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
+</body>
+</html>
