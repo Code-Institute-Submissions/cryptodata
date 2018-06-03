@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 MONGO_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
-DBS_NAME = os.getenv('MONGO_DB_NAME', 'cryptoBEL')
+DBS_NAME = os.getenv('MONGO_DB_NAME', 'heroku_nkht84wd')
 COLLECTION_NAME = 'projects'
 
 
@@ -42,7 +42,7 @@ def crypto():
         collection = conn[DBS_NAME][COLLECTION_NAME]
         # Retrieve a result set only with the fields defined in FIELDS
         # and limit the the results to 55000
-        projects = collection.find(projection=FIELDS, limit=50000)
+        projects = collection.find(projection=FIELDS, limit=55000)
         # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(projects))
 
