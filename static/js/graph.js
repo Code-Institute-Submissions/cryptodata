@@ -26,6 +26,7 @@ cryptoBELprojects.forEach(function (d) {
 
     var facts = crossfilter(cryptoBELprojects);
 
+
     var all = facts.groupAll();
 
     var sumTotal = all.reduceSum(function (d) {
@@ -42,6 +43,7 @@ cryptoBELprojects.forEach(function (d) {
         return d['circulating_supply'];
     });
 //---------------------------------------------------------------
+
     var marketDimension = facts.dimension(function(d){
        return d['name'];
     });
@@ -90,7 +92,7 @@ cryptoBELprojects.forEach(function (d) {
     //BarChart
 //-------------------------------------------------
    var barChart = dc.barChart("#bar-chart")
-        .height(400)
+        .height(200)
         .dimension(typeDimension)
         .group(typeGroup)
         .yAxisLabel('')
@@ -118,15 +120,15 @@ cryptoBELprojects.forEach(function (d) {
         .x(d3.time.scale().domain([minDate, maxDate]));
 
 
-        lineChart.yAxis().ticks(5);
-        lineChart.xAxis().ticks(4);
+        lineChart.yAxis().ticks(10);
+        lineChart.xAxis().ticks(20);
 //-----------------------------------------------------------
 
     //Pie Chart
 //------------------------------------------------------------
 
   var pieChart = dc.pieChart("#pie-chart")
-        .height(200)
+        .height(290)
         .title(function (d) {
           console.log(d.key); return d.key + ': $'+d.value
       })
@@ -138,7 +140,7 @@ cryptoBELprojects.forEach(function (d) {
         .dimension(marketDimension)
         .group(marketGroup)
         .transitionDuration(1900)
-        .legend(dc.legend().x(450).y(5).itemHeight(12).gap(5));
+        .legend(dc.legend().x(0).y(5).itemHeight(12).gap(5));
 
 //----------------------------------------------------------------------
     var dataTable = dc.dataTable("#table")
@@ -148,17 +150,25 @@ cryptoBELprojects.forEach(function (d) {
         .group(function (d) {
            console.log(d); return d.name;
         })
-        .columns(['date_posted',
+        .columns([{label:' Date',format: function (d) {
+            return d.date_posted.getDate()+'/'+d.date_posted.getMonth()+'/'+d.date_posted.getFullYear();
+        }},
             'name',
             'price',
-            'market_cap', 'circulating_supply'])
+            {label:'Market Cap', format: function (d) {
+               return d.market_cap
+           }},
+            {label:'Circulating Supply', format: function (d) {
+               return d.circulating_supply
+           }}])
         .on("renderlet", function (table) {
             table.selectAll('.dc-table-group').classed('info',true);
         });
+
 //-----------------------------------------------------------
-    var series = dc.seriesChart("#series-chart")
+    var seriesChart = dc.seriesChart("#series-chart")
         .width(1360)
-        .height(400)
+        .height(300)
         .ordinalColors(["#f89e32","#2e2f2f","#a6e1ec"])
         .margins({top:40, bottom: 60, right: 80, left:100})
         .chart(function (cht) {
@@ -167,6 +177,7 @@ cryptoBELprojects.forEach(function (d) {
 
         .dimension(priceDimension)
         .group(priceGroup)
+        .brushOn(false)
         .elasticY(true)
 
         .keyAccessor(function (d) {
@@ -181,16 +192,11 @@ cryptoBELprojects.forEach(function (d) {
         .legend(dc.legend().x(1250).y(39).itemHeight(13).gap(4).legendWidth(1360).itemWidth(70))
         .x(d3.time.scale().domain([new Date(2013, 6, 18), new Date(2018, 4, 22)]));
 
-
+         seriesChart.yAxis().ticks(20);
 //-------------------------------------Test------------------------------------------------------------------
-
- //   priceDimension
- //       .formatNumber(d3.format("d"))
- //       .valueAccessor(function (d) {
-   //         return d;
-     //   })
-       // .group(sumTotal)
-        //.formatNumber(d3.format(".3s"));
+      //  var dataCount= dc.dataCount(".dc-data-count")
+        //    .dimension(facts)
+          //  .group(all);
 
 
 
