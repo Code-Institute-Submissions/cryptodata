@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Crypto Major Coins</title>
+
   <link rel="stylesheet" href="{{ url_for ('static',
     filename='lib/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static',
@@ -43,11 +44,16 @@
                  <div class="chart-wrapper">
 <!--------------------------------------------------------------------------------------------------------------->
 
-                <div class='col-lg-4'>
+                <div class='col-lg-3'>
                     <div class="chart-wrapper">
                          <div class="chart-title">
-                                Market Cap Dominance
+                            <div class="dc-data-count">
+                                 <span class="filter-count"></span><span class="total-count"></span>
+                                 <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+                             </div>
+                               <p> Market Cap Dominance </p>
                          </div>
+
                          <div class="chart-stage">
                                 <div id="pie-chart"></div>
                          </div>
@@ -55,14 +61,13 @@
                 </div>
 
 <!--------------------------------------------------------------------------------------------------------------->
-
-                <div class='col-lg-8'>
+            <div class='col-lg-9'>
                     <div class="chart-wrapper">
                         <div class="chart-title">
-                               Price Timeline
+                                Total Market Cap
                         </div>
                         <div class="chart-stage">
-                                <div id="time-chart"></div>
+                                <div id="series-chart"></div>
                         </div>
                     </div>
                 </div>
@@ -86,6 +91,10 @@
 
                 <div class='col-lg-3'>
                     <div class="chart-wrapper">
+                         <div class="dc-data-count">
+                              <span class="filter-count"></span><span class="total-count"></span>
+                              <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+                         </div>
                          <div class="chart-title">
                                 Circulating Supply
                          </div>
@@ -96,17 +105,22 @@
                 </div>
 
 <!--------------------------------------------------------------------------------------------------------------->
-
-                <div class='col-lg-9'>
+            <div class='col-lg-9'>
                     <div class="chart-wrapper">
+                        <div class="dc-data-count">
+                              <span class="filter-count"></span><span class="total-count"></span>
+                              <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+                         </div>
                         <div class="chart-title">
-                                Total Market Cap
+                               Price Timeline
                         </div>
                         <div class="chart-stage">
-                                <div id="series-chart"></div>
+                                <div id="time-chart"></div>
                         </div>
                     </div>
                 </div>
+
+
 
 <!--------------------------------------------------------------------------------------------------------------->
                 </div>
@@ -119,6 +133,16 @@
 
 
 <!-------------------------------------------End of the Second Group---------------------------------------------->
+          <div class="container-fluid">
+              <div class="dc-data-count">
+                  <span class="filter-count"></span><span class="total-count"></span>
+                  <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+              </div>
+              <div class="chart-wrapper">
+              <table id="table" class="table table-hover"></table>
+          </div>
+
+     </div>
 
 
 <!--------------------------------------------------------------------------------------------------------------->
