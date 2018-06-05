@@ -130,7 +130,7 @@ cryptoBELprojects.forEach(function (d) {
   var pieChart = dc.pieChart("#pie-chart")
         .height(290)
         .title(function (d) {
-          console.log(d.key); return d.key + ': $'+d.value
+           return d.key + ': $'+d.value
       })
       .ordinalColors(["#f89e32","#2e2f2f","#a6e1ec"])
       .transitionDuration(1500)
@@ -150,7 +150,7 @@ cryptoBELprojects.forEach(function (d) {
         .dimension(dateDimension)
         .size(10)
         .group(function (d) {
-           console.log(d); return d.name;
+            return d.name;
         })
         .columns([{label:' Date',format: function (d) {
             return d.date_posted.getDate()+'/'+d.date_posted.getMonth()+'/'+d.date_posted.getFullYear();
@@ -196,7 +196,7 @@ cryptoBELprojects.forEach(function (d) {
         .legend(dc.legend().x(1250).y(39).itemHeight(13).gap(4).legendWidth(1360).itemWidth(70))
         .x(d3.time.scale().domain([new Date(2013, 6, 18), new Date(2018, 4, 22)]));
 
-         seriesChart.yAxis().ticks(20);
+         seriesChart.yAxis().ticks(10);
 //-------------------------------------Test------------------------------------------------------------------
       //  var dataCount= dc.dataCount(".dc-data-count")
         //    .dimension(facts)
@@ -206,8 +206,8 @@ cryptoBELprojects.forEach(function (d) {
 
 
 
-     /// console.log(cryptoBELprojects);
-        print_filter('priceGroup ');
+     // console.log(cryptoBELprojects);
+       // print_filter('priceGroup ');
 
 
 
