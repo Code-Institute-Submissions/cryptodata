@@ -42,7 +42,7 @@ cryptoBELprojects.forEach(function (d) {
     var typeGroup = typeDimension.group().reduceSum(function(d){
         return d['circulating_supply'];
     });
-//---------------------------------------------------------------
+//---------------------------------------------------------------------------
 
     var marketDimension = facts.dimension(function(d){
        return d['name'];
@@ -92,7 +92,7 @@ cryptoBELprojects.forEach(function (d) {
     //BarChart
 //-------------------------------------------------
    var barChart = dc.barChart("#bar-chart")
-        .height(200)
+        .height(300)
         .dimension(typeDimension)
         .group(typeGroup)
         .yAxisLabel('')
@@ -108,13 +108,13 @@ cryptoBELprojects.forEach(function (d) {
 
   var lineChart = dc.lineChart("#time-chart")
         .width(1300)
-        .height(200)
+        .height(300)
         .margins({top: 10, right: 200, bottom: 20, left: 120})
         .dimension(dateDimension)
         .group(dateGroup)
        // .stack(dateGroupName)
         .elasticY(true)
-        .yAxisLabel('Price')
+        .yAxisLabel('Price in Dollar')
         .renderHorizontalGridLines(true)
         .renderArea(true)
         .x(d3.time.scale().domain([minDate, maxDate]));
@@ -143,6 +143,8 @@ cryptoBELprojects.forEach(function (d) {
         .legend(dc.legend().x(0).y(5).itemHeight(12).gap(5));
 
 //----------------------------------------------------------------------
+    //Data Table
+//----------------------------------------------------------------------
     var dataTable = dc.dataTable("#table")
 
         .dimension(dateDimension)
@@ -165,7 +167,9 @@ cryptoBELprojects.forEach(function (d) {
             table.selectAll('.dc-table-group').classed('info',true);
         });
 
-//-----------------------------------------------------------
+//----------------------------------------------------------------------
+    //Series Chart
+//-----------------------------------------------------------------------
     var seriesChart = dc.seriesChart("#series-chart")
         .width(1360)
         .height(300)
