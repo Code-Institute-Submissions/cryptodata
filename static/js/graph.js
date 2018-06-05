@@ -109,7 +109,7 @@ cryptoBELprojects.forEach(function (d) {
   var lineChart = dc.lineChart("#time-chart")
         .width(1300)
         .height(300)
-        .margins({top: 10, right: 200, bottom: 20, left: 120})
+        .margins({top:40, bottom: 60, right: 26, left:100})
         .dimension(dateDimension)
         .group(dateGroup)
        // .stack(dateGroupName)
