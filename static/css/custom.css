@@ -12,3 +12,6 @@
 width: 450px;
 }
 
+th.dc-table-head{
+    padding-left: 8px;
+}
